@@ -21,7 +21,7 @@ export async function AuthButton() {
             <DropdownMenuTrigger asChild>
                 <Button>
                     {/* <Image src="image.jpg" alt="User Avatar" width={32} height={32} /> */}
-                    {user.email}
+                    {user.name ?? user.email}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
