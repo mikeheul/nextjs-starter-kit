@@ -26,7 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html 
+      lang="en"
+      suppressHydrationWarning
+    >
       <body
         className={cn(
           geistSans.variable, 
@@ -41,7 +44,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
-          </ThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
