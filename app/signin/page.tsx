@@ -2,10 +2,18 @@ import { signIn, providerMap } from "@/lib/auth"
 import { AuthError } from "next-auth"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { auth } from "@/lib/auth-helper"
+import { redirect } from "next/navigation"
 
 export default async function SignInPage(props: {
     searchParams: { callbackUrl: string | undefined }
 }) {
+
+    const user = await auth()
+    if(user) {
+        redirect("/")
+    }
+
     return (
         <div className="flex flex-col gap-2">
             <form
